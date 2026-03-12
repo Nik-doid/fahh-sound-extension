@@ -3,11 +3,12 @@
   "displayName": "Fahh Sound Extension",
   "description": "Plays a sound when a terminal error is detected.",
   "version": "0.0.2",
-  "publisher": "miunin",
+  "publisher": "Nik-doid",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nik-doid/fahh-sound-extension.git"
   },
+  "icon": "assets/logo.jpeg",
   "engines": {
     "vscode": "^1.56.0"
   },
