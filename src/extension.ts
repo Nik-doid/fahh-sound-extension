@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
     // ─── Helpers ────────────────────────────────────────────────────────────
 
     function getConfig() {
-        return vscode.workspace.getConfiguration('fahh');
+        return vscode.workspace.getConfiguration('faaaahh');
     }
 
     function isEnabled(): boolean {
@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
         const soundPath = getSoundPath();
 
         if (!fs.existsSync(soundPath)) {
-            vscode.window.showErrorMessage(`Fahh: Sound file not found at ${soundPath}`);
+            vscode.window.showErrorMessage(`faaaahh: Sound file not found at ${soundPath}`);
             return;
         }
 
@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         exec(command, (err) => {
-            if (err) console.error('Fahh: Sound playback error:', err.message);
+            if (err) console.error('faaaahh: Sound playback error:', err.message);
         });
     }
 
@@ -78,11 +78,11 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     function updateStatusBar() {
-        statusBarItem.text = isEnabled() ? '$(bell) Fahh' : '$(bell-slash) Fahh';
+        statusBarItem.text = isEnabled() ? '$(bell) faaaahh' : '$(bell-slash) faaaahh';
         statusBarItem.tooltip = isEnabled()
-            ? 'Fahh: Error sound ON — click to toggle'
-            : 'Fahh: Error sound OFF — click to toggle';
-        statusBarItem.command = 'fahh.toggle';
+            ? 'faaaahh: Error sound ON — click to toggle'
+            : 'faaaahh: Error sound OFF — click to toggle';
+        statusBarItem.command = 'faaaahh.toggle';
         statusBarItem.show();
     }
 
@@ -98,17 +98,17 @@ export function activate(context: vscode.ExtensionContext) {
                     const text = chunk.toLowerCase();
                     for (const pattern of getPatterns()) {
                         if (text.includes(pattern.toLowerCase())) {
-                            console.log('Fahh: Terminal error detected:', text);
+                            console.log('faaaahh: Terminal error detected:', text);
                             playErrorSoundSafe();
                             if (getConfig().get<boolean>('showStatusBarMessage')) {
-                                vscode.window.setStatusBarMessage('$(warning) Fahh: Terminal error detected', 2000);
+                                vscode.window.setStatusBarMessage('$(warning) faaaahh: Terminal error detected', 2000);
                             }
                             return;
                         }
                     }
                 }
             } catch (err) {
-                console.error('Fahh: Terminal read error:', err);
+                console.error('faaaahh: Terminal read error:', err);
             }
         })();
     });
@@ -118,32 +118,32 @@ export function activate(context: vscode.ExtensionContext) {
     // ─── Commands ────────────────────────────────────────────────────────────
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.showStatus', () => {
+        vscode.commands.registerCommand('faaaahh.showStatus', () => {
             const patterns = getPatterns();
             vscode.window.showInformationMessage(
-                `Fahh: ${isEnabled() ? 'ON' : 'OFF'} | Cooldown: ${getCooldown()}ms | Patterns: ${patterns.length}`
+                `faaaahh: ${isEnabled() ? 'ON' : 'OFF'} | Cooldown: ${getCooldown()}ms | Patterns: ${patterns.length}`
             );
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.testSound', () => {
+        vscode.commands.registerCommand('faaaahh.testSound', () => {
             playErrorSound();
-            vscode.window.showInformationMessage('Fahh: Playing test sound...');
+            vscode.window.showInformationMessage('faaaahh: Playing test sound...');
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.toggle', async () => {
+        vscode.commands.registerCommand('faaaahh.toggle', async () => {
             const current = isEnabled();
             await getConfig().update('enabled', !current, vscode.ConfigurationTarget.Global);
             updateStatusBar();
-            vscode.window.showInformationMessage(`Fahh: Sounds ${!current ? 'enabled' : 'disabled'}`);
+            vscode.window.showInformationMessage(`faaaahh: Sounds ${!current ? 'enabled' : 'disabled'}`);
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.setCooldown', async () => {
+        vscode.commands.registerCommand('faaaahh.setCooldown', async () => {
             const input = await vscode.window.showInputBox({
                 prompt: 'Enter cooldown duration in milliseconds (min 500)',
                 value: String(getCooldown()),
@@ -153,13 +153,13 @@ export function activate(context: vscode.ExtensionContext) {
             });
             if (input) {
                 await getConfig().update('cooldownMs', Number(input), vscode.ConfigurationTarget.Global);
-                vscode.window.showInformationMessage(`Fahh: Cooldown set to ${input}ms`);
+                vscode.window.showInformationMessage(`faaaahh: Cooldown set to ${input}ms`);
             }
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.addPattern', async () => {
+        vscode.commands.registerCommand('faaaahh.addPattern', async () => {
             const input = await vscode.window.showInputBox({
                 prompt: 'Enter a new error pattern to watch for',
                 placeHolder: 'e.g. syntax error'
@@ -167,17 +167,17 @@ export function activate(context: vscode.ExtensionContext) {
             if (input?.trim()) {
                 const patterns = getPatterns();
                 if (patterns.includes(input.trim())) {
-                    vscode.window.showWarningMessage(`Fahh: Pattern "${input.trim()}" already exists`);
+                    vscode.window.showWarningMessage(`faaaahh: Pattern "${input.trim()}" already exists`);
                     return;
                 }
                 await getConfig().update('errorPatterns', [...patterns, input.trim()], vscode.ConfigurationTarget.Global);
-                vscode.window.showInformationMessage(`Fahh: Added pattern "${input.trim()}"`);
+                vscode.window.showInformationMessage(`faaaahh: Added pattern "${input.trim()}"`);
             }
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.removePattern', async () => {
+        vscode.commands.registerCommand('faaaahh.removePattern', async () => {
             const patterns = getPatterns();
             const selected = await vscode.window.showQuickPick(patterns, {
                 placeHolder: 'Select a pattern to remove'
@@ -188,13 +188,13 @@ export function activate(context: vscode.ExtensionContext) {
                     patterns.filter(p => p !== selected),
                     vscode.ConfigurationTarget.Global
                 );
-                vscode.window.showInformationMessage(`Fahh: Removed pattern "${selected}"`);
+                vscode.window.showInformationMessage(`faaaahh: Removed pattern "${selected}"`);
             }
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.listPatterns', () => {
+        vscode.commands.registerCommand('faaaahh.listPatterns', () => {
             const patterns = getPatterns();
             vscode.window.showQuickPick(patterns, {
                 placeHolder: `${patterns.length} active pattern(s) — read only view`,
@@ -204,7 +204,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('fahh.resetPatterns', async () => {
+        vscode.commands.registerCommand('faaaahh.resetPatterns', async () => {
             const confirm = await vscode.window.showWarningMessage(
                 'Reset all patterns to default?',
                 { modal: true },
@@ -212,7 +212,7 @@ export function activate(context: vscode.ExtensionContext) {
             );
             if (confirm === 'Yes') {
                 await getConfig().update('errorPatterns', undefined, vscode.ConfigurationTarget.Global);
-                vscode.window.showInformationMessage('Fahh: Patterns reset to default');
+                vscode.window.showInformationMessage('faaaahh: Patterns reset to default');
             }
         })
     );
@@ -220,11 +220,11 @@ export function activate(context: vscode.ExtensionContext) {
     // Config change listener — keep status bar in sync
     context.subscriptions.push(
         vscode.workspace.onDidChangeConfiguration(e => {
-            if (e.affectsConfiguration('fahh')) updateStatusBar();
+            if (e.affectsConfiguration('faaaahh')) updateStatusBar();
         })
     );
 
-    console.log('Fahh Terminal Error Sound Extension Active');
+    console.log('faaaahh Terminal Error Sound Extension Active');
 }
 
 export function deactivate() {}

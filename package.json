@@ -1,12 +1,12 @@
 {
-  "name": "fahh-sound-extension",
-  "displayName": "Fahh Sound Extension",
+  "name": "faaaahh-sound-extension",
+  "displayName": "faaaahh Sound Extension",
   "description": "Plays a sound when a terminal error is detected.",
   "version": "0.0.2",
   "publisher": "Nik-doid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nik-doid/fahh-sound-extension.git"
+    "url": "https://github.com/Nik-doid/faaaahh-sound-extension.git"
   },
   "icon": "assets/logo.jpeg",
   "engines": {
@@ -29,54 +29,54 @@
   "contributes": {
     "commands": [
       {
-        "command": "fahh.showStatus",
-        "title": "Fahh: Show Status"
+        "command": "faaaahh.showStatus",
+        "title": "faaaahh: Show Status"
       },
       {
-        "command": "fahh.testSound",
-        "title": "Fahh: Test Sound"
+        "command": "faaaahh.testSound",
+        "title": "faaaahh: Test Sound"
       },
       {
-        "command": "fahh.toggle",
-        "title": "Fahh: Toggle Error Sounds On/Off"
+        "command": "faaaahh.toggle",
+        "title": "faaaahh: Toggle Error Sounds On/Off"
       },
       {
-        "command": "fahh.setCooldown",
-        "title": "Fahh: Set Cooldown Duration"
+        "command": "faaaahh.setCooldown",
+        "title": "faaaahh: Set Cooldown Duration"
       },
       {
-        "command": "fahh.addPattern",
-        "title": "Fahh: Add Custom Error Pattern"
+        "command": "faaaahh.addPattern",
+        "title": "faaaahh: Add Custom Error Pattern"
       },
       {
-        "command": "fahh.removePattern",
-        "title": "Fahh: Remove Error Pattern"
+        "command": "faaaahh.removePattern",
+        "title": "faaaahh: Remove Error Pattern"
       },
       {
-        "command": "fahh.listPatterns",
-        "title": "Fahh: List Active Error Patterns"
+        "command": "faaaahh.listPatterns",
+        "title": "faaaahh: List Active Error Patterns"
       },
       {
-        "command": "fahh.resetPatterns",
-        "title": "Fahh: Reset Patterns to Default"
+        "command": "faaaahh.resetPatterns",
+        "title": "faaaahh: Reset Patterns to Default"
       }
     ],
     "configuration": {
-      "title": "Fahh",
+      "title": "faaaahh",
       "properties": {
-        "fahh.enabled": {
+        "faaaahh.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable or disable terminal error sound alerts."
         },
-        "fahh.cooldownMs": {
+        "faaaahh.cooldownMs": {
           "type": "number",
           "default": 2000,
           "minimum": 500,
           "maximum": 30000,
           "description": "Minimum milliseconds between sounds to avoid spam."
         },
-        "fahh.errorPatterns": {
+        "faaaahh.errorPatterns": {
           "type": "array",
           "items": { "type": "string" },
           "default": [
@@ -94,12 +94,12 @@
           ],
           "description": "List of terminal output patterns that trigger the error sound."
         },
-        "fahh.soundFile": {
+        "faaaahh.soundFile": {
           "type": "string",
           "default": "",
           "description": "Absolute path to a custom sound file (.mp3 or .wav). Leave empty to use the default."
         },
-        "fahh.showStatusBarMessage": {
+        "faaaahh.showStatusBarMessage": {
           "type": "boolean",
           "default": true,
           "description": "Show a status bar message when an error is detected."

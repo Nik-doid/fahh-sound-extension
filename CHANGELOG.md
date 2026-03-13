@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the **Fahh Sound Extension** are documented here.
+All notable changes to the **faaaahh Sound Extension** are documented here.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
 and [Semantic Versioning](https://semver.org/).
@@ -10,18 +10,18 @@ and [Semantic Versioning](https://semver.org/).
 ## [0.0.2] - 2025-03-11
 
 ### Added
-- `fahh.toggle` command — enable/disable from command palette or status bar click
-- `fahh.setCooldown` command — set cooldown duration interactively
-- `fahh.addPattern` command — add custom error patterns without editing settings
-- `fahh.removePattern` command — remove patterns via QuickPick menu
-- `fahh.listPatterns` command — view all active patterns in a QuickPick list
-- `fahh.resetPatterns` command — restore default patterns with confirmation dialog
+- `faaaahh.toggle` command — enable/disable from command palette or status bar click
+- `faaaahh.setCooldown` command — set cooldown duration interactively
+- `faaaahh.addPattern` command — add custom error patterns without editing settings
+- `faaaahh.removePattern` command — remove patterns via QuickPick menu
+- `faaaahh.listPatterns` command — view all active patterns in a QuickPick list
+- `faaaahh.resetPatterns` command — restore default patterns with confirmation dialog
 - Settings via `contributes.configuration`:
-  - `fahh.enabled` — toggle sounds on/off
-  - `fahh.cooldownMs` — configurable cooldown (default 2000ms)
-  - `fahh.errorPatterns` — customizable pattern list
-  - `fahh.soundFile` — custom sound file path
-  - `fahh.showStatusBarMessage` — toggle status bar notification
+  - `faaaahh.enabled` — toggle sounds on/off
+  - `faaaahh.cooldownMs` — configurable cooldown (default 2000ms)
+  - `faaaahh.errorPatterns` — customizable pattern list
+  - `faaaahh.soundFile` — custom sound file path
+  - `faaaahh.showStatusBarMessage` — toggle status bar notification
 - Status bar item is now **clickable** (toggles extension on/off)
 - Status bar icon switches between `$(bell)` and `$(bell-slash)` based on state
 - Config change listener keeps status bar in sync when settings file is edited directly
@@ -30,8 +30,8 @@ and [Semantic Versioning](https://semver.org/).
 
 ### Changed
 - All runtime values now read live from settings — no stale in-memory state
-- `playErrorSoundSafe` respects both `fahh.enabled` and `fahh.cooldownMs`
-- Renamed command IDs from `extension.*` to `fahh.*` for consistency
+- `playErrorSoundSafe` respects both `faaaahh.enabled` and `faaaahh.cooldownMs`
+- Renamed command IDs from `extension.*` to `faaaahh.*` for consistency
 
 ### Fixed
 - Windows `.mp3` playback was broken with the old `SoundPlayer` approach
@@ -47,7 +47,7 @@ and [Semantic Versioning](https://semver.org/).
 - Cross-platform support: Windows (PowerShell), macOS (afplay), Linux (mpg123/ffplay)
 - 2-second hardcoded cooldown to prevent sound spam
 - Status bar item showing extension is active
-- `Fahh: Show Status` command
-- `Fahh: Test Sound` command
+- `faaaahh: Show Status` command
+- `faaaahh: Test Sound` command
 - Default error patterns: `error`, `failed`, `fatal`, `exception`, `traceback`,
   `npm err`, `segmentation fault`, `panic`, `cannot find`, `not found`, `module not found`

@@ -1,4 +1,4 @@
-# 🔔 Fahh Sound Extension
+# 🔔 faaaahh Sound Extension
 
 A VS Code extension that plays a sound whenever an error is detected in your terminal — so you don't have to stare at the screen waiting for something to break.
 
@@ -52,28 +52,28 @@ All commands are accessible via the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift
 
 | Command | Description |
 |---|---|
-| `Fahh: Show Status` | Display current state (enabled, cooldown, pattern count) |
-| `Fahh: Test Sound` | Play the alert sound immediately to verify setup |
-| `Fahh: Toggle Error Sounds On/Off` | Enable or disable the extension |
-| `Fahh: Set Cooldown Duration` | Set minimum ms between consecutive sounds |
-| `Fahh: Add Custom Error Pattern` | Add a new terminal pattern to watch for |
-| `Fahh: Remove Error Pattern` | Remove a pattern from the watch list |
-| `Fahh: List Active Error Patterns` | View all currently active patterns |
-| `Fahh: Reset Patterns to Default` | Restore the default error pattern list |
+| `faaaahh: Show Status` | Display current state (enabled, cooldown, pattern count) |
+| `faaaahh: Test Sound` | Play the alert sound immediately to verify setup |
+| `faaaahh: Toggle Error Sounds On/Off` | Enable or disable the extension |
+| `faaaahh: Set Cooldown Duration` | Set minimum ms between consecutive sounds |
+| `faaaahh: Add Custom Error Pattern` | Add a new terminal pattern to watch for |
+| `faaaahh: Remove Error Pattern` | Remove a pattern from the watch list |
+| `faaaahh: List Active Error Patterns` | View all currently active patterns |
+| `faaaahh: Reset Patterns to Default` | Restore the default error pattern list |
 
 ---
 
 ## ⚙️ Configuration
 
-All settings can be changed via `File → Preferences → Settings` and searching for **Fahh**.
+All settings can be changed via `File → Preferences → Settings` and searching for **faaaahh**.
 
 | Setting | Type | Default | Description |
 |---|---|---|---|
-| `fahh.enabled` | boolean | `true` | Enable or disable sound alerts |
-| `fahh.cooldownMs` | number | `2000` | Min ms between sounds (500–30000) |
-| `fahh.errorPatterns` | string[] | See below | Terminal patterns that trigger a sound |
-| `fahh.soundFile` | string | `""` | Absolute path to a custom `.mp3` or `.wav` file |
-| `fahh.showStatusBarMessage` | boolean | `true` | Show a message in status bar on detection |
+| `faaaahh.enabled` | boolean | `true` | Enable or disable sound alerts |
+| `faaaahh.cooldownMs` | number | `2000` | Min ms between sounds (500–30000) |
+| `faaaahh.errorPatterns` | string[] | See below | Terminal patterns that trigger a sound |
+| `faaaahh.soundFile` | string | `""` | Absolute path to a custom `.mp3` or `.wav` file |
+| `faaaahh.showStatusBarMessage` | boolean | `true` | Show a message in status bar on detection |
 
 ### Default Error Patterns
 
@@ -89,7 +89,7 @@ All settings can be changed via `File → Preferences → Settings` and searchin
 
 ```json
 {
-  "fahh.soundFile": "/Users/yourname/sounds/alert.mp3"
+  "faaaahh.soundFile": "/Users/yourname/sounds/alert.mp3"
 }
 ```
 
@@ -99,8 +99,8 @@ All settings can be changed via `File → Preferences → Settings` and searchin
 
 The status bar item in the bottom-right shows:
 
-- `🔔 Fahh` — sounds are **enabled**
-- `🔕 Fahh` — sounds are **disabled**
+- `🔔 faaaahh` — sounds are **enabled**
+- `🔕 faaaahh` — sounds are **disabled**
 
 Click it to instantly toggle on/off.
 
@@ -109,7 +109,7 @@ Click it to instantly toggle on/off.
 ## 🗂️ Project Structure
 
 ```
-fahh-sound-extension/
+faaaahh-sound-extension/
 ├── assets/
 │   ├── error-sound.mp3       ← Default sound (add your own here)
 │   └── error-sound.wav       ← WAV fallback (optional)
